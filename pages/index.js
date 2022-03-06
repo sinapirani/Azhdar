@@ -20,8 +20,7 @@ export default function App(){
     if(resizerClicked){
       setResizerLeft(e.pageX - 1/5)
       setToolsWidth(e.pageX)
-      setZoneWidth(mainWidth - toolsWidth) 
-      console.log(mainWidth-toolsWidth)
+      setZoneWidth(mainWidth - toolsWidth)  
     } 
   }
   const resizerMouseChanger = (value)=>{
@@ -43,6 +42,12 @@ export default function App(){
 
 
 
+  const [ConsoleState,setConsoleState] = useState(false)
+  const ConsoleStateChanger = (state)=>{
+    setConsoleState(state)
+  }
+
+  
   return(
     <>
       <Head>
@@ -52,8 +57,8 @@ export default function App(){
       <main className=" flex w-full h-screen bg-slate-400 relative overflow-hidden" onMouseUp={()=>setResizerClicked(false)} onMouseMove={mainMouseHandler} ref={main} >
 
         <Resizer width={'3px'} left={resizerLeft} resizerMouseChanger={resizerMouseChanger}/>
-        <Tools width={`${toolsWidth}px`}/>
-        <Zone width={`${zoneWidth}px`} theme={theme}/>
+        <Tools consoleChanger={ConsoleStateChanger} width={`${toolsWidth}px`}/>
+        <Zone consoleChanger={ConsoleStateChanger} width={`${zoneWidth}px`} theme={theme}/>
       </main>
     </>
   )

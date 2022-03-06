@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Code from "./zone/code"
+import Console from "./console"
 
 export default function Zone({width,theme}){
 
@@ -13,8 +14,9 @@ export default function Zone({width,theme}){
 
 
     return(
-        <div style={{width}} className={`flex justify-center items-center bg-gradient-to-br from-[#6B3DEC] to-[#C9309D] h-screen`}>
+        <div style={{width}} className={`relative flex justify-center items-center bg-gradient-to-br from-[#6B3DEC] to-[#C9309D] h-screen`}>
             <Code/>
+            <Console bottom={}/>
         </div>
     )
 }
