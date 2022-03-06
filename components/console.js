@@ -9,40 +9,37 @@ export default function Console({bottom}){
     const isPlay = useSelector(state=>state.Play.status)
     const [htmlCode,setHtmlCode] = useState('')
     const log = (code)=>{
-        setHtmlCode(code)
+        if(typeof code !== 'object'){
+            setHtmlCode(code)
+        }else{
+            setHtmlCode(JSON.stringify(code))    
+        }
     }
-    console.log
-    let EvalPromise = new Promise((resolve,reject)=>{
-        try{
-            eval(code)
-            resolve('success')
-        }
-        catch(err){
-            if(err instanceof SyntaxError){
-                reject(err.message)
-            }
-            else{
-                reject('error')
-            }
-        }
-    })
+    console.log = log
 
     useEffect(()=>{
         if(isPlay){
-            EvalPromise.then(()=>{
-                setCompile('success')
+            try{
+                eval(code)
                 dispatch(play(false))
-            }).catch(err=>{
-                console.log(err)
-                dispatch(play(false))
-            })
+            }
+            catch(err){
+                if(err instanceof SyntaxError){
+                    console.log(err.message.toString())
+                    dispatch(play(false))
+                }
+                else{
+                    console.log(err.toString())
+                    dispatch(play(false))
+                }
+            }
         }else{
 
         }
     },[isPlay])
 
     return(
-        <div style={{'bottom': `${bottom}px`}} className='absolute min-w-[300px] rounded-md h-20 bg-slate-800'>
+        <div style={{'bottom': `${bottom}px`}} className=' flex justify-center items-center text-white absolute min-w-[300px] rounded-md h-20 bg-slate-800'>
             {htmlCode}
         </div>
     )

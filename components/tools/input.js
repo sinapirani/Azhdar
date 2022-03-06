@@ -9,7 +9,7 @@ function Input({}) {
 
     return (
         <>
-            <textarea onChange={(e)=>dispatch(setCode(e.target.value))} className=" w-full h-full px-4 border-1  text-white bg-slate-900 active:border-0" id="input"></textarea>
+            <textarea onChange={(e)=>dispatch(setCode(e.target.value))} className=" w-full h-full px-4 border-1  text-white bg-slate-900 active:border-0" id="input" value={code}></textarea>
         </>
     );
 }
