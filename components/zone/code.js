@@ -7,7 +7,9 @@ function Code({mainHeight}) {
 
     const code = useSelector(state => state.Code.code)
     const hljsEl = useRef(null)
-    const [mainHeightState,setMainHeightState] = useState(mainHeight)
+    const codeContainer = useRef(null)
+
+
 
 
     useEffect(()=>{
@@ -15,7 +17,7 @@ function Code({mainHeight}) {
     },[code])
 
     useEffect(()=>{
-        hljsEl?.current?.style.maxHeight = `${mainHeight/2}px` 
+        codeContainer?.current?.style.maxHeight = `${mainHeight/2}px` 
     },[mainHeight])
 
     // useEffect(()=>{
@@ -42,9 +44,9 @@ function Code({mainHeight}) {
 
 
 
-                <div id="codeContiner" className="w-full max-w-full overflow-y-scroll min-h-[10px] z-20 px-2 pb-3">
+                <div id="codeContiner" ref={codeContainer} className="w-full max-w-full overflow-y-scroll min-h-[10px] z-20 px-2 pb-3">
 
-                    <pre className="w-full py-3l overflow-hidden px-2"><div ref={hljsEl} className="w-full select-none text-[15 px] overflow-scroll language-javascript" dangerouslySetInnerHTML={{'__html': code}} id="code"></div></pre>
+                    <pre className="w-full py-3l overflow-hidden px-2"><div ref={hljsEl} className="w-full select-none text-[15 px] overflow-hidden language-javascript" dangerouslySetInnerHTML={{'__html': code}} id="code"></div></pre>
 
                 </div>
 
