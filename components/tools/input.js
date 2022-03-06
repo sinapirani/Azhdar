@@ -14,7 +14,7 @@ function Input({}) {
 
     return (
         <>
-            <textarea onKeyDown={textAreaKeyDown} onChange={(e)=>dispatch(setCode(e.target.value))} className="border-1  text-black border-black border-solid active:border-0" id="input"></textarea>
+            <textarea onKeyDown={textAreaKeyDown} onChange={(e)=>dispatch(setCode(e.target.value))} className=" w-full h-full px-4 border-1  text-white bg-slate-900 active:border-0" id="input"></textarea>
         </>
     );
 }

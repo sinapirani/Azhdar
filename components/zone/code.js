@@ -9,9 +9,6 @@ function Code({mainHeight}) {
     const hljsEl = useRef(null)
     const codeContainer = useRef(null)
 
-
-
-
     useEffect(()=>{
         hljs.highlightBlock(hljsEl?.current)
     },[code])
@@ -19,15 +16,10 @@ function Code({mainHeight}) {
     useEffect(()=>{
         codeContainer?.current?.style.maxHeight = `${mainHeight/2}px` 
     },[mainHeight])
-
-    // useEffect(()=>{
-    //      
-    // },[hljsEl])
-
     return (
         <div className='flex justify-center items-center '>
 
-            <div className="min-w-[350px] max-w-[350px] flex flex-col justify-center items-center bg-[#ffffffbd] rounded-xl overflow-hidden">
+            <div className="min-w-[350px] max-w-[80%] flex flex-col justify-center items-center bg-[#ffffffbd] rounded-xl overflow-hidden">
 
                 <div className="w-full flex justify-center items-center px-2 h-7">
                     <div className="flex w-1/6 justify-evenly">

@@ -10,7 +10,7 @@ export default function Tools({width}){
         <div style={{width}} className={` h-screen bg-black flex flex-col justify-center items-center relative overflow-hidden `}>
             
 
-            <div className="h-1/2 w-full flex justify-center items-center overflow-y-scroll z-20">
+            <div className="h-1/2 w-full flex justify-center items-center overflow-hidden z-20">
                 <Input/>
             </div>
 

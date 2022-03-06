@@ -34,8 +34,22 @@ background: #C9309D;
 background: #555;
 }
 
-#codeContiner {
-outline: none;
-border: none;
+
+/* width */
+#input::-webkit-scrollbar {
+width: 4px;
 }
-/*# sourceMappingURL=style.css.map */
+#input::-webkit-scrollbar:hover{
+    cursor: pointer;
+}
+#input::-webkit-scrollbar-track {
+background: #f1f1f1;
+}
+
+#input::-webkit-scrollbar-thumb {
+background: #C9309D;
+}
+
+#input::-webkit-scrollbar-thumb:hover {
+background: #555;
+}
