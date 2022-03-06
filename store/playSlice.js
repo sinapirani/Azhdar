@@ -7,7 +7,6 @@ export const playSlice = createSlice({
         code: ''
     },
     reducers:{
-
         changeCode: ()=>{state,action=>{
             state.code = action.payload
         }}

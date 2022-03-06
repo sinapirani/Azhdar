@@ -2,8 +2,13 @@
 
 
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 
 function Code({}) {
+
+    const code = useSelector(state => state.Code.code)
+
     return (
         <div className=' min-w-[100px] '>
 
@@ -26,7 +31,7 @@ function Code({}) {
 
                 <div id="codeContiner" className="w-full max-w-full overflow-y-scroll min-h-10 ">
 
-                    <pre className="w-full py-3l overflow-hidden px-2"><div className="w-full select-none text-[12px] overflow-hidden language-javascript" id="code">sdasd</div></pre>
+                    <pre className="w-full py-3l overflow-hidden px-2"><div className="w-full select-none text-[12px] overflow-hidden language-javascript" id="code">{code}</div></pre>
 
                 </div>
 

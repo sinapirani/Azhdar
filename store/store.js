@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import Play, { playSlice } from './playSlice'
+import Play from './playSlice'
+import Code from './codeSlice'
 
 export const store = configureStore({
     reducer:{
-        Play: playSlice
+        Play,
+        Code
     }
 })
