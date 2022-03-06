@@ -5,6 +5,8 @@ import Tools from "../components/tools"
 import Resizer from "../components/resizer"
 import { useEffect, useState } from "react"
 import { useRef } from "react"
+import {store} from '../store/store'
+import { Provider } from "react-redux"
 
 export default function App(){
 
@@ -49,17 +51,17 @@ export default function App(){
 
   
   return(
-    <>
-      <Head>
-        <title>code to image</title>
-      </Head>
+      <Provider store={store}>
+        <Head>
+          <title>code to image</title>
+        </Head>
 
-      <main className=" flex w-full h-screen bg-slate-400 relative overflow-hidden" onMouseUp={()=>setResizerClicked(false)} onMouseMove={mainMouseHandler} ref={main} >
+        <main className=" flex w-full h-screen bg-slate-400 relative overflow-hidden" onMouseUp={()=>setResizerClicked(false)} onMouseMove={mainMouseHandler} ref={main} >
 
-        <Resizer width={'3px'} left={resizerLeft} resizerMouseChanger={resizerMouseChanger}/>
-        <Tools consoleChanger={ConsoleStateChanger} width={`${toolsWidth}px`}/>
-        <Zone consoleChanger={ConsoleStateChanger} width={`${zoneWidth}px`} theme={theme}/>
-      </main>
-    </>
+          <Resizer width={'3px'} left={resizerLeft} resizerMouseChanger={resizerMouseChanger}/>
+          <Tools consoleChanger={ConsoleStateChanger} width={`${toolsWidth}px`}/>
+          <Zone consoleChanger={ConsoleStateChanger} width={`${zoneWidth}px`} theme={theme}/>
+        </main>
+      </Provider>
   )
 }
