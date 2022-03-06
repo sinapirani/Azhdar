@@ -1,13 +1,15 @@
 import { useState } from "react"
+import Input from "./tools/input"
 
 export default function Tools({width}){
 
 
     return(
         <div style={{width}} className={` h-screen bg-black flex flex-col justify-center items-center relative overflow-hidden `}>
-
+            
+            
             <div className="h-1/2 w-full flex justify-center items-center overflow-y-scroll z-20">
-                <pre><code className="border-1  text-white border-black border-solid active:border-0" contentEditable="" id="input">let page = '@sinapiranix'</code></pre>
+                <Input/>
             </div>
 
             <div className="h-1/2 w-full flex justify-start gap-x-5 pl-7 items-center ">
