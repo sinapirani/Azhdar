@@ -11,6 +11,7 @@ import { Provider } from "react-redux"
 export default function App(){
 
   const [mainWidth,setMainWidth] = useState(0)
+  const [mainHeight,setMainHeight] = useState(0)
   const [zoneWidth,setZoneWidth] = useState(0)
   const [toolsWidth,setToolsWidth] = useState(0)
   const [resizerLeft,setResizerLeft] = useState(0)
@@ -36,10 +37,12 @@ export default function App(){
 
   const main = useRef(null)
   useEffect(()=>{
-    setMainWidth(main.current.offsetWidth)
-    setResizerLeft(`${mainWidth/ 2 - 1.5}px`)
-    setZoneWidth(mainWidth/2)
-    setToolsWidth(mainWidth/2 )
+      setMainWidth(main.current.offsetWidth)
+      setMainHeight(main.current.offsetHeight)
+      setResizerLeft(`${mainWidth/ 2 - 1.5}px`)
+      setZoneWidth(mainWidth/2)
+      setToolsWidth(mainWidth/2 )
+
   },[main.current])
 
 
@@ -60,7 +63,7 @@ export default function App(){
 
           <Resizer width={'3px'} left={resizerLeft} resizerMouseChanger={resizerMouseChanger}/>
           <Tools consoleChanger={ConsoleStateChanger} width={`${toolsWidth}px`}/>
-          <Zone consoleChanger={ConsoleStateChanger} width={`${zoneWidth}px`} theme={theme}/>
+          <Zone mainHeight={mainHeight} consoleChanger={ConsoleStateChanger} width={`${zoneWidth}px`} theme={theme}/>
         </main>
       </Provider>
   )

@@ -5,10 +5,16 @@ import {setCode} from '../../store/codeSlice';
 function Input({}) {
 
     const dispatch = useDispatch();
+    const code = useSelector(state => state.Code.code);
+    const textAreaKeyDown = (e)=>{
+        if(e.key == 'Enter'){
+            dispatch(setCode(code+'\n'))
+        }
+    }
 
     return (
         <>
-            <pre><code onInput={(e)=>dispatch(setCode(e.currentTarget.innerHTML))} className="border-1  text-white border-black border-solid active:border-0" contentEditable="" id="input">let page = '@sinapiranix'</code></pre>
+            <textarea onKeyDown={textAreaKeyDown} onChange={(e)=>dispatch(setCode(e.target.value))} className="border-1  text-black border-black border-solid active:border-0" id="input"></textarea>
         </>
     );
 }

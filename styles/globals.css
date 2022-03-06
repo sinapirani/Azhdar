@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+#code {
+word-wrap: break-word !important;
+max-width: 100%;
+white-space: pre-wrap;
+color: #C9309D;
+font-weight: bold;
+
+}
+
+#code span {
+word-wrap: break-word;
+word-break: break-all;
+}
+
+/* width */
+#codeContiner::-webkit-scrollbar {
+width: 4px;
+}
+
+#codeContiner::-webkit-scrollbar-track {
+background: #f1f1f1;
+}
+
+#codeContiner::-webkit-scrollbar-thumb {
+background: #C9309D;
+}
+
+#codeContiner::-webkit-scrollbar-thumb:hover {
+background: #555;
+}
+
+#codeContiner {
+outline: none;
+border: none;
+}
+/*# sourceMappingURL=style.css.map */

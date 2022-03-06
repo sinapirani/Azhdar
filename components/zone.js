@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Code from "./zone/code"
 import Console from "./console"
 
-export default function Zone({width,theme}){
+export default function Zone({width,theme,mainHeight}){
 
     const [colorPalette,setColorPalette] = useState(theme)
     const [bottom,setBottom] = useState(123)
@@ -25,7 +25,7 @@ export default function Zone({width,theme}){
 
     return(
         <div style={{width}} className={`relative flex justify-center items-center bg-gradient-to-br from-[#6B3DEC] to-[#C9309D] h-screen`}>
-            <Code/>
+            <Code mainHeight={mainHeight} />
             <Console bottom={bottom}/>
         </div>
     )

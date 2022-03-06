@@ -1,18 +1,31 @@
-
-
-
-import React from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
+import hljs from 'highlight.js';
 
-function Code({}) {
+function Code({mainHeight}) {
 
     const code = useSelector(state => state.Code.code)
+    const hljsEl = useRef(null)
+    const [mainHeightState,setMainHeightState] = useState(mainHeight)
+
+
+    useEffect(()=>{
+        hljs.highlightBlock(hljsEl?.current)
+    },[code])
+
+    useEffect(()=>{
+        hljsEl?.current?.style.maxHeight = `${mainHeight/2}px` 
+    },[mainHeight])
+
+    // useEffect(()=>{
+    //      
+    // },[hljsEl])
 
     return (
-        <div className=' min-w-[100px] '>
+        <div className='flex justify-center items-center '>
 
-            <div className="min-w-[300px] max-w-[350px] flex flex-col justify-center items-center bg-[#ffffffbd] rounded-xl overflow-hidden">
+            <div className="min-w-[350px] max-w-[350px] flex flex-col justify-center items-center bg-[#ffffffbd] rounded-xl overflow-hidden">
 
                 <div className="w-full flex justify-center items-center px-2 h-7">
                     <div className="flex w-1/6 justify-evenly">
@@ -29,9 +42,9 @@ function Code({}) {
 
 
 
-                <div id="codeContiner" className="w-full max-w-full overflow-y-scroll min-h-10 ">
+                <div id="codeContiner" className="w-full max-w-full overflow-y-scroll min-h-[10px] z-20 px-2 pb-3">
 
-                    <pre className="w-full py-3l overflow-hidden px-2"><div className="w-full select-none text-[12px] overflow-hidden language-javascript" id="code">{code}</div></pre>
+                    <pre className="w-full py-3l overflow-hidden px-2"><div ref={hljsEl} className="w-full select-none text-[15 px] overflow-scroll language-javascript" dangerouslySetInnerHTML={{'__html': code}} id="code"></div></pre>
 
                 </div>
 
