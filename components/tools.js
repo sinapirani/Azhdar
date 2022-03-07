@@ -2,6 +2,7 @@ import { useState } from "react"
 import Input from "./tools/input"
 import Trash from "./tools/bottons/trash"
 import Play from "./tools/bottons/play"
+import AutoPlay from "./tools/bottons/autoPlay"
 
 export default function Tools({width}){
 
@@ -17,6 +18,7 @@ export default function Tools({width}){
             <div className="h-1/2 w-full flex justify-start gap-x-5 pl-7 items-center ">
                 <Play/>
                 <Trash/>
+                <AutoPlay/>
             </div>
 
             

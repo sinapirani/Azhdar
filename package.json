@@ -21,6 +21,7 @@
     "scss": "^0.2.4"
   },
   "devDependencies": {
+    "@zeit/next-css": "^1.0.1",
     "autoprefixer": "^10.4.2",
     "eslint": "8.10.0",
     "eslint-config-next": "12.1.0",

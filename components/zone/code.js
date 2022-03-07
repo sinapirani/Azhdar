@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import hljs from 'highlight.js';
+import { current } from '@reduxjs/toolkit';
 
 function Code({mainHeight}) {
 
@@ -11,10 +12,16 @@ function Code({mainHeight}) {
 
     useEffect(()=>{
         hljs.highlightBlock(hljsEl?.current)
+        if(codeContainer?.current?.scrollHeight > mainHeight/2){
+            codeContainer?.current?.style.overflowY = 'scroll'
+        }else{
+            codeContainer?.current?.style.overflowY = 'hidden'
+        }
     },[code])
 
     useEffect(()=>{
         codeContainer?.current?.style.maxHeight = `${mainHeight/2}px` 
+
     },[mainHeight])
     return (
         <div className='flex justify-center items-center '>

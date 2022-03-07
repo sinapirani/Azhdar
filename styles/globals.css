@@ -53,3 +53,42 @@ background: #C9309D;
 #input::-webkit-scrollbar-thumb:hover {
 background: #555;
 }
+
+#switch{
+    position: relative;
+    width: 20%;
+    height: 3.5rem;
+    border: solid 2px rgb(255 255 255 / 0.5);;
+    border-radius: 50px;
+    overflow: hidden;
+}
+#switchSpan{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: .4s;
+    transition: .4s;
+    z-index: 20;
+}
+#switchSpan:before{
+    content: url('/icons.refresh.svg');
+    position: absolute;
+    bottom: calc(50% - 1.25rem);
+    left: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    transition: .2s ;
+    border-radius:50%;
+}
+
+#switch input:checked + #switchSpan{
+    transform: translateX(55%);
+} 
+
+#switch input{
+    width: 0;
+    height: 0;  
+}
