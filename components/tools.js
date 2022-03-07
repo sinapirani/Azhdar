@@ -2,6 +2,7 @@ import { useState } from "react"
 import Input from "./tools/input"
 import Trash from "./tools/bottons/trash"
 import Play from "./tools/bottons/play"
+import LogCloser from "./tools/bottons/logCloser"
 import AutoPlay from "./tools/bottons/autoPlay"
 import { useSelector,useDispatch } from "react-redux"
 import { changeWidth } from "../store/toolsSlice"
@@ -23,6 +24,7 @@ export default function Tools({width}){
                 <Play />
                 <Trash/>
                 <AutoPlay />
+                <LogCloser/>
             </div>
 
             

@@ -5,7 +5,8 @@ export const playSlice = createSlice({
     name: 'playSlice',
     initialState:{
         status: false,
-        autoPlay: false
+        autoPlay: false,
+        closed: true
     },
     reducers:{
         play: (state,action)=>{

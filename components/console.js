@@ -57,7 +57,7 @@ export default function Console({bottom}){
     },[code])
 
     return(
-        <div style={{'bottom': `${bottom}px`, width: '100%', height: '200px'}} className=' flex justify-center items-center absolute z-20 text-white min-w-[300px] rounded-md h-20 bg-slate-800'>
+        <div style={{'bottom': `${bottom}px`, width: '100%',maxWidth: '100%', height: '200px'}} className=' flex justify-start items-center px-3 absolute z-20 text-white min-w-[300px] rounded-md h-20 bg-slate-800'>
             {htmlCode}
         </div>
     )
