@@ -54,10 +54,10 @@ background: #C9309D;
 background: #555;
 }
 
-#switch{
+/* #switch{
     position: relative;
-    width: 20%;
-    height: 3.5rem;
+    width: 100%;
+    height: 2rem;
     border: solid 2px rgb(255 255 255 / 0.5);;
     border-radius: 50px;
     overflow: hidden;
@@ -74,21 +74,24 @@ background: #555;
     z-index: 20;
 }
 #switchSpan:before{
-    content: url('/icons.refresh.svg');
+    content: url('../components/tools/bottons/icons/refresh.svg');
     position: absolute;
-    bottom: calc(50% - 1.25rem);
+    bottom: 0.5rem;
     left: 0.5rem;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 1rem;
+    height: 1rem;
     transition: .2s ;
     border-radius:50%;
+}   
+input:checked + #switchSpan {
+    background-color: #C9309D;
 }
-
-#switch input:checked + #switchSpan{
-    transform: translateX(55%);
+#switch input:checked + #switchSpan:before{
+    transform: translateX(160%);
 } 
+
 
 #switch input{
     width: 0;
     height: 0;  
-}
+} */
