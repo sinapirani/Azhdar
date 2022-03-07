@@ -3,9 +3,12 @@ import Input from "./tools/input"
 import Trash from "./tools/bottons/trash"
 import Play from "./tools/bottons/play"
 import AutoPlay from "./tools/bottons/autoPlay"
+import { useSelector,useDispatch } from "react-redux"
 
 export default function Tools({width}){
 
+    const dispatch = useDispatch()
+    
 
     return(
         <div style={{width: `${width}px`}} className={` h-screen bg-black flex flex-col justify-center items-center relative overflow-hidden `}>
