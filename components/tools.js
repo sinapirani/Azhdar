@@ -16,8 +16,8 @@ export default function Tools({width}){
             </div>
 
             <div className="h-1/2 w-full flex justify-start gap-x-5 pl-7 items-center ">
-                <Play/>
-                <Trash/>
+                <Play width={width}/>
+                <Trash width={width}/>
                 <AutoPlay width={width}/>
             </div>
 
