@@ -17,11 +17,13 @@ function Code({mainHeight}) {
         }else{
             codeContainer?.current?.style.overflowY = 'hidden'
         }
+
     },[code])
+
 
     useEffect(()=>{
         codeContainer?.current?.style.maxHeight = `${mainHeight/2}px` 
-
+        codeContainer?.current?.style.maxWidth = `${mainHeight/1 }px` 
     },[mainHeight])
     return (
         <div className='flex justify-center items-center '>

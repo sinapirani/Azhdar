@@ -5,7 +5,7 @@ import Console from "./console"
 export default function Zone({width,theme,mainHeight}){
 
     const [colorPalette,setColorPalette] = useState(theme)
-    const [bottom,setBottom] = useState(123)
+    const [bottom,setBottom] = useState(0)
 
 
     // useEffect(()=>{
