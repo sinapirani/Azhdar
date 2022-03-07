@@ -52,7 +52,7 @@ export default function App(){
     setConsoleState(state)
   }
 
-  
+
   return(
       <Provider store={store}>
         <Head>
@@ -62,7 +62,7 @@ export default function App(){
         <main className=" flex w-full h-screen bg-slate-400 relative overflow-hidden" onMouseUp={()=>setResizerClicked(false)} onMouseMove={mainMouseHandler} ref={main} >
 
           <Resizer width={'3px'} left={resizerLeft} resizerMouseChanger={resizerMouseChanger}/>
-          <Tools consoleChanger={ConsoleStateChanger} width={`${toolsWidth}px`}/>
+          <Tools consoleChanger={ConsoleStateChanger} width={toolsWidth}/>
           <Zone mainHeight={mainHeight} consoleChanger={ConsoleStateChanger} width={`${zoneWidth}px`} theme={theme}/>
         </main>
       </Provider>

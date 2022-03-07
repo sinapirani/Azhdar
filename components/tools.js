@@ -8,7 +8,7 @@ export default function Tools({width}){
 
 
     return(
-        <div style={{width}} className={` h-screen bg-black flex flex-col justify-center items-center relative overflow-hidden `}>
+        <div style={{width: `${width}px`}} className={` h-screen bg-black flex flex-col justify-center items-center relative overflow-hidden `}>
             
 
             <div className="h-1/2 w-full flex justify-center items-center overflow-hidden z-20">
@@ -18,7 +18,7 @@ export default function Tools({width}){
             <div className="h-1/2 w-full flex justify-start gap-x-5 pl-7 items-center ">
                 <Play/>
                 <Trash/>
-                <AutoPlay/>
+                <AutoPlay width={width}/>
             </div>
 
             
