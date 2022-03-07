@@ -4,11 +4,12 @@ import Trash from "./tools/bottons/trash"
 import Play from "./tools/bottons/play"
 import AutoPlay from "./tools/bottons/autoPlay"
 import { useSelector,useDispatch } from "react-redux"
+import { changeWidth } from "../store/toolsSlice"
 
 export default function Tools({width}){
 
     const dispatch = useDispatch()
-    
+    dispatch(changeWidth(width))
 
     return(
         <div style={{width: `${width}px`}} className={` h-screen bg-black flex flex-col justify-center items-center relative overflow-hidden `}>
@@ -19,9 +20,9 @@ export default function Tools({width}){
             </div>
 
             <div className="h-1/2 w-full flex justify-start gap-x-5 pl-7 items-center ">
-                <Play width={width}/>
-                <Trash width={width}/>
-                <AutoPlay width={width}/>
+                <Play />
+                <Trash/>
+                <AutoPlay />
             </div>
 
             

@@ -3,14 +3,11 @@ import { useEffect, useState } from "react"
 import { useDispatch,useSelector } from "react-redux"
 import { autoPlayStatus } from "../../../store/playSlice"
 
-export default function AutoPlay({width}){
+export default function AutoPlay(){
 
-    const [toolsWidth,setToolWidth]  = useState(0)
+
     const autoPlay = useSelector((store)=> store.Play.autoPlay)
-
-    useEffect(()=>{
-        setToolWidth(width)     
-    },[width])
+    const toolsWidth = useSelector(state => state.Tools.width)
 
     const divStyle = {
         width: `${(toolsWidth/100)*12 }px`,
