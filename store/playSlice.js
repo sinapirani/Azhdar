@@ -6,7 +6,7 @@ export const playSlice = createSlice({
     initialState:{
         status: false,
         autoPlay: false,
-        closed: true
+        isClosed: false
     },
     reducers:{
         play: (state,action)=>{
@@ -14,10 +14,13 @@ export const playSlice = createSlice({
         },
         autoPlayStatus: (state,action)=>{
             state.autoPlay = action.payload
+        },
+        changeTerminalStatus: (state,action)=>{
+            state.isClosed = action.payload
         }
 
     }
 })
 
-export const {play,autoPlayStatus} = playSlice.actions
+export const {play,autoPlayStatus,changeTerminalStatus} = playSlice.actions
 export default playSlice.reducer

@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react"
 import Code from "./zone/code"
-import Console from "./console"
+import Console from "./zone/console"
 
 export default function Zone({width,theme,mainHeight}){
 
     const [colorPalette,setColorPalette] = useState(theme)
-    const [bottom,setBottom] = useState(0)
 
 
     // useEffect(()=>{
     //     setTimeout(() => {
     //         setBottom(bottom+5)
-    //         console.log(bottom)
+    //         console.log(bottom) 
     //     }, 20);
     // },[bottom])
 
@@ -26,7 +25,7 @@ export default function Zone({width,theme,mainHeight}){
     return(
         <div style={{width}} className={`relative flex justify-center items-center bg-gradient-to-br from-[#6B3DEC] to-[#C9309D] h-screen`}>
             <Code mainHeight={mainHeight} />
-            <Console bottom={bottom}/>
+            <Console />
         </div>
     )
 }
