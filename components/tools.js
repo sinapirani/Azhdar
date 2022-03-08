@@ -6,6 +6,7 @@ import LogCloser from "./tools/bottons/logCloser"
 import AutoPlay from "./tools/bottons/autoPlay"
 import { useSelector,useDispatch } from "react-redux"
 import { changeWidth } from "../store/toolsSlice"
+import ThemeChanger from "./tools/bottons/theme"
 
 export default function Tools({width}){
 
@@ -16,15 +17,23 @@ export default function Tools({width}){
         <div style={{width: `${width}px`}} className={` h-screen bg-black flex flex-col justify-center items-center relative overflow-hidden `}>
             
 
-            <div className="h-1/2 w-full flex justify-center items-center overflow-hidden z-20">
+            <div className="h-1/2 w-full flex justify-center items-center overflow-hidden z-20 mb-auto">
                 <Input/>
             </div>
 
-            <div className="h-1/2 w-full flex justify-start gap-x-5 pl-7 items-center ">
-                <Play />
-                <Trash/>
-                <AutoPlay />
-                <LogCloser/>
+            <div className=" w-full flex flex-col justify-start pl-7 items-center mb-20 ">
+                <div className="h-full w-full flex justify-start gap-x-5 items-center mb-2">
+                    <Play />
+                    <Trash/>
+                    <AutoPlay />
+                    <LogCloser/>
+                </div>
+                    
+                <div className="w-full h-full">
+                    <ThemeChanger/>
+                </div>
+
+
             </div>
 
             
