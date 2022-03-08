@@ -2,6 +2,7 @@ import { useEffect,useState  } from "react";
 import { useDispatch,useSelector } from "react-redux"
 import { play } from "../../store/playSlice";
 import { changeTerminalStatus } from "../../store/playSlice";
+import { changeTerminalY } from "../../store/playSlice";
 
 export default function Console(){
     
@@ -9,6 +10,7 @@ export default function Console(){
     const code = useSelector(state=>state.Code.code)
     const isPlay = useSelector(state=>state.Play.status)
     const isAuto = useSelector(state=>state.Play.autoPlay)
+    const terminalY = useSelector(state=> state.Play.terminalY)
     const [htmlCode,setHtmlCode] = useState('')
     const isClosed = useSelector(state=>state.Play.isClosed)
     const [bottom,setBottom] = useState(0)
@@ -27,6 +29,11 @@ export default function Console(){
     useEffect(()=>{
         if(isPlay){
             try{
+                window.playinterval = setInterval(() => {
+                    if(bottom <= -200 && terminalY == 'blow'){
+                        setBottom(old => old+50)
+                    }
+                }, 30);
                 eval(code)
                 dispatch(play(false))
             }
@@ -69,8 +76,8 @@ export default function Console(){
     useEffect(()=>{
         if(isClosed){
             window.bottomInterval = setInterval(() => {
-                if(bottom == 0){
-                    setBottom(old => old-5)
+                if(bottom == 0 && terminalY == 'above'){
+                    setBottom(old => old-50)
                 }
             }, 30);
         }
@@ -79,8 +86,18 @@ export default function Console(){
     // if animation proccess ended => delete animation interval and disable CLOSE TERMINAL btn
     useEffect(()=>{
         if(bottom <= -200){
-            clearInterval(window.bottomInterval)
-            dispatch(changeTerminalStatus(false))
+            if(terminalY == 'above'){
+                clearInterval(window.bottomInterval)
+                dispatch(changeTerminalStatus(true))
+                dispatch(changeTerminalY('blow'))
+            }
+
+        }else if(bottom >= 0){
+            if(terminalY == 'blow'){
+                clearInterval(window.playinterval)
+                dispatch(changeTerminalStatus(false))
+                dispatch(changeTerminalY('above'))
+            }
         }
     },[bottom])
 

@@ -8,13 +8,15 @@ export default function LogCloser(){
 
     const isClosed = useSelector((store)=> store.Play.isClosed)
     const toolsWidth = useSelector(state => state.Tools.width)
+    const terminalY = useSelector(state=> state.Play.terminalY)
 
     const divStyle = {
         width: `${(toolsWidth/100)*12 }px`,
         height: `${(toolsWidth/100)*12 }px`,
         opacity: isClosed ? '1' : '0.3',
         backgroundColor: isClosed ? 'white' : 'transparent',
-        transition: '0.4s'
+        transition: '0.4s',
+        cursor: terminalY == 'blow'? 'not-allowed' : 'pointer'
     }
     const svgStyle ={
         'width': `${(toolsWidth/100)*7 }px`,
@@ -24,8 +26,9 @@ export default function LogCloser(){
 
     const dispatch = useDispatch()
     const clickHandler = ()=>{
-        dispatch(changeTerminalStatus(!isClosed))
-        console.warn(isClosed)
+        if(terminalY == 'above'){
+            dispatch(changeTerminalStatus(!isClosed))
+        }
     }
 
 
