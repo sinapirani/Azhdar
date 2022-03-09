@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const playSlice = createSlice({
     name: 'playSlice',
     initialState:{
-        status: false,
+        status: true,
         autoPlay: false,
         isClosed: false,
         terminalY: 'above'

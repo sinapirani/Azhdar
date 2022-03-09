@@ -6,7 +6,7 @@ import LogCloser from "./tools/bottons/logCloser"
 import AutoPlay from "./tools/bottons/autoPlay"
 import { useSelector,useDispatch } from "react-redux"
 import { changeWidth } from "../store/toolsSlice"
-import ThemeChanger from "./tools/bottons/theme"
+import ThemeChanger from "./tools/bottons/themeBtn"
 
 export default function Tools({width}){
 
@@ -38,7 +38,7 @@ export default function Tools({width}){
 
             
             <div className=" w-64 h-64 rounded-t-2xl rounded-b-xl bg-gradient-to-r from-cyan-500 to-blue-500 blur-[150px] absolute z-10 left-0 top-0"></div>
-            <div className="w-64 h-64 rounded-t-2xl rounded-b-xl rounded-r-3xl rounded-l-sm bg-gradient-to-r from-violet-500 to-red-500 z-10 blur-[150px] absolute right-0 -bottom-10"></div>
+            <div className="w-64 h-64 rounded-t-2xl rounded-b-xl rounded-r-3xl rounded-l-sm bg-gradient-to-r from-violet-500 to-red-800 z-10 blur-[130px] absolute right-0 -bottom-10"></div>
         </div>
     )
 } 

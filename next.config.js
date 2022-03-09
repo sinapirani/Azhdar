@@ -2,6 +2,12 @@
 const withCss = require('@zeit/next-css')
 const nextConfig = {
   reactStrictMode: true,
-
 }
-module.exports = nextConfig
+module.exports = {
+  nextConfig,
+  resolve: {
+  alias: {
+    react: require.resolve('react')
+  } 
+}
+}
