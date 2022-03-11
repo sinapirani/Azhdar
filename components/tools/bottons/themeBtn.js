@@ -7,6 +7,8 @@ export default function ThemeChanger(){
     const width = useSelector((state) => state.Tools.width)
     const theme = useSelector(state=> state.Theme.theme)
     const [themeBackground, setThemeBackground] = useState('') 
+    const themeStyles = useSelector(state=> state.Theme.themeStyles)
+    console.log(themeStyles)
 
     const btnStyle = {
         'width': `${(width/100)*14}px`,
@@ -35,11 +37,26 @@ export default function ThemeChanger(){
         height: `${(width/100)*4}px`,
         borderRadius: '50px'
     }
+
+    const absoluteStyle = {
+        'width': `${(width/100)*14}px`,
+    }
     const [optionStyle,setOptionStyle] = useState(0)
 
     return(
-        <div style={btnStyle} className=" z-20 flex justify-center items-center bg-transparent  font-extrabold text-white text-lg  border-2 border-solid border-white/50 rounded-md   hover:text-fuchsia-500 duration-75" id="run">
-            <div style={themeStyle} ></div>
-        </div>
+        <>
+            <div style={btnStyle} className=" relative z-20 flex justify-center items-center bg-transparent  font-extrabold text-white text-lg  border-2 border-solid border-white/50 rounded-md   hover:text-fuchsia-500 duration-75" id="run">
+                <div style={themeStyle} ></div>
+                <div style={absoluteStyle} className="absolute top-0 z-30 bg-white text-black hover:text-black ">
+                    {
+                        themeStyles.map(theme => {
+                            return(
+                                <div>{theme.name}</div>
+                            )
+                        })
+                    }
+                </div>
+            </div>
+        </>
     )
 }
