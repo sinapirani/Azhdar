@@ -12,7 +12,7 @@ export default function ThemeChanger(){
 
 
     const onThemeListClick = ()=>{
-
+        setShowOption(!showOption)
     }
 
     useEffect(()=>{
@@ -56,15 +56,15 @@ export default function ThemeChanger(){
 
     return(
         <>
-            <div style={btnStyle} className=" relative z-50 flex justify-center items-center bg-transparent  font-extrabold text-white text-lg  border-2 border-solid border-white/50 rounded-md cursor-pointer  hover:text-fuchsia-500 duration-75" id="run">
+            <div onClick={onThemeListClick} style={btnStyle} className=" relative z-50 flex justify-center items-center bg-transparent  font-extrabold text-white text-lg  border-2 border-solid border-white/50 rounded-md cursor-pointer  hover:text-fuchsia-500 duration-75" id="run">
                 <div style={themeStyle} ></div>
-                <div onClick={onThemeListClick} style={absoluteStyle} className={`absolute rounded-lg px-2 py-2 z-50 bg-white text-black hover:text-black ${showOption? 'block' : 'hidden'}`}>
+                <div style={absoluteStyle} className={`absolute rounded-lg px-2 py-2 z-50 bg-white text-black hover:text-black ${showOption? 'block' : 'hidden'}`}>
                     {
                         themeStyles.map((theme,key) => {
                             return(
-                                <div className="flex gap-2 justify-center items-center w-22" key={key} >
+                                <div className="flex gap-2 py-1 justify-center items-center w-22" key={key} >
                                     <span className="rounded-full" style={{...optionStyle,'background': theme.background}}></span>
-                                    <span className=" font-normal text-sm w-16">{theme.name}</span>
+                                    <span className=" select-none font-normal text-xs text-gray-400 w-16">{theme.name}</span>
                                 </div>
                             ) 
                         })
