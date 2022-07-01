@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit"
 export const codeSlice = createSlice({
     name: "code",
     initialState: {
-        code: "let page = '@sinapiranix'\nconsole.log(page)",
+        code: `let page = '@sinapiranix'
+        console.log(page)`,
     },
     reducers: {
         setCode: (state, action) => {
