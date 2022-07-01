@@ -16,7 +16,7 @@ function Code({mainHeight}) {
             codeContainer.current.style.overflowY = 'scroll'
         }else{
             codeContainer.current.style.overflowY = 'hidden'
-        }
+        } 
 
     },[code])
 
