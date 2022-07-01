@@ -44,7 +44,7 @@ export default function ThemeChanger(){
     }
 
     const absoluteStyle = {
-        // 'width': `${(width/100)*14}px`,
+
         'bottom': `${(width/100)*7}px`,
 
     }

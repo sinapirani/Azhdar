@@ -7,12 +7,7 @@ export default function Zone({width,theme,mainHeight}){
     const [colorPalette,setColorPalette] = useState(theme)
 
 
-    // useEffect(()=>{
-    //     setTimeout(() => {
-    //         setBottom(bottom+5)
-    //         console.log(bottom) 
-    //     }, 20);
-    // },[bottom])
+
 
     switch(theme){
         case 'breeze0':

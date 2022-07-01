@@ -15,7 +15,7 @@ export default function Console(){
     const isClosed = useSelector(state=>state.Play.isClosed)
     const [bottom,setBottom] = useState(0)
 
-    //customize console.log
+
     const log = (code)=>{
         if(typeof code !== 'object'){
             setHtmlCode(code)
@@ -25,7 +25,7 @@ export default function Console(){
     }
     console.log = log
 
-    // if play button clicked => try to play code
+
     useEffect(()=>{
         if(isPlay){
             try{
@@ -51,7 +51,7 @@ export default function Console(){
     },[isPlay])
 
 
-    // if AutoPlay btn is active => component run the code after any change of code
+
     useEffect(()=>{
         if(isAuto){
             try{
@@ -72,7 +72,6 @@ export default function Console(){
     },[code])
 
 
-    // if closeTerminal clicked => create a close animation 
     useEffect(()=>{
         if(isClosed){
             window.bottomInterval = setInterval(() => {
@@ -83,7 +82,7 @@ export default function Console(){
         }
     },[isClosed])
 
-    // if animation proccess ended => delete animation interval and disable CLOSE TERMINAL btn
+
     useEffect(()=>{
         if(bottom <= -200){
             if(terminalY == 'above'){
