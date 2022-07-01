@@ -12,10 +12,10 @@ function Code({mainHeight}) {
 
     useEffect(()=>{
         hljs.highlightBlock(hljsEl?.current)
-        if(codeContainer?.current?.scrollHeight > mainHeight/2){
-            codeContainer.current?.style.overflowY = 'scroll'
+        if(codeContainer.current.scrollHeight > mainHeight/2){
+            codeContainer.current.style.overflowY = 'scroll'
         }else{
-            codeContainer.current?.style.overflowY = 'hidden'
+            codeContainer.current.style.overflowY = 'hidden'
         }
 
     },[code])
